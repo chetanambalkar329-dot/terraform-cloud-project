@@ -1,123 +1,73 @@
-🌐 Terraform AWS Infrastructure Project
+# 🌐 Terraform AWS Infrastructure Project
+[![Terraform](https://img.shields.io/badge/Terraform-1.6.6-blue?logo=terraform)](https://www.terraform.io/) [![AWS](https://img.shields.io/badge/AWS-Cloud-orange?logo=amazon-aws)](https://aws.amazon.com/) [![GitHub Actions](https://img.shields.io/badge/GitHub-Actions-blueviolet?logo=github-actions)](https://github.com/features/actions)
 
-🚀 Project Overview
+## 🚀 Project Overview
+This project demonstrates **deploying AWS infrastructure with Terraform**. Designed for **intern-level roles**, it covers:
+- EC2 instance launch (Free Tier)  
+- Automatic Nginx installation  
+- S3 bucket creation  
+- Security Group configuration  
+- CI/CD via GitHub Actions  
 
-This project demonstrates deploying cloud infrastructure on AWS using Terraform, designed for intern-level roles.
+## 📦 Architecture
+**EC2 Instance**
+- AMI: Amazon Linux 2  
+- Type: t3.micro  
+- Security Group: SSH (22) & HTTP (80)  
+- User Data: installs Nginx  
 
-It highlights Infrastructure as Code (IaC) best practices and shows your ability to:
+**S3 Bucket**
+- Demo bucket for storage  
 
-Launch EC2 instances with free-tier configuration
+**CI/CD Workflow**
+- GitHub Actions automates: `terraform init`, `validate`, `plan`  
 
-Install and configure Nginx web server automatically
+## ⚡ Getting Started
 
-Create S3 buckets for storage
+### Prerequisites
+- AWS account (Free Tier recommended)  
+- Terraform v1.6.6+  
+- Git  
 
-Setup Security Groups for SSH & HTTP
-
-Automate infrastructure deployment via GitHub Actions CI/CD
-
-📦 Architecture
-EC2 Instance
-
-AMI: Amazon Linux 2
-
-Type: t3.micro (Free Tier)
-
-User Data: Installs Nginx automatically
-
-Security Group: Allows SSH (22) & HTTP (80)
-
-S3 Bucket
-
-Demo bucket for storing files or backups
-
-Created via Terraform
-
-CI/CD Pipeline
-
-GitHub Actions workflow runs automatically:
-
-terraform init
-
-terraform validate
-
-terraform plan
-
-Ensures infrastructure changes are validated before deployment
-
-⚡ Getting Started
-Prerequisites
-
-AWS account (Free Tier recommended)
-
-Terraform v1.6.6+
-
-Git installed
-
-Optional: VS Code
-
-Setup Steps
-
-Clone repository:
-
+### Setup Steps
+1. Clone repo:
+```bash
 git clone https://github.com/chetanambalkar329-dot/terraform-cloud-project.git
 cd terraform-cloud-project
 
-
 Set AWS credentials:
-Create a temporary IAM user with programmatic access.
-
 setx AWS_ACCESS_KEY_ID "YOUR_ACCESS_KEY"
 setx AWS_SECRET_ACCESS_KEY "YOUR_SECRET_KEY"
 
-
 Initialize Terraform:
-
 terraform init
 
-
-Plan & deploy infrastructure:
+Plan & apply:
 
 terraform plan
 terraform apply -auto-approve
 
+Verify: Open EC2 public IP → Nginx welcome page
 
-Verify deployment:
-Open the EC2 public IP in a browser → Nginx welcome page should appear
-
-⚙️ CI/CD with GitHub Actions
+⚙️ CI/CD (GitHub Actions)
 
 Workflow: .github/workflows/terraform.yml
-
 Steps:
-
-Checkout repository
-
-Setup Terraform environment
-
-Configure AWS credentials securely from GitHub Secrets
-
-Run Terraform commands: init, validate, plan
-
-Ensures automated checks for every push
+Checkout repo
+Setup Terraform
+Configure AWS credentials from Secrets
+Run: init, validate, plan
 
 🧹 Cleanup & Cost Management
 
 To avoid AWS charges:
-
 terraform destroy -auto-approve
-
-
-Verify EC2 instances, S3 buckets, EBS volumes, and Elastic IPs are removed
-
-Confirm AWS Cost Explorer shows no active resources
+Verify no EC2 instances, S3 buckets, or other resources remain.
 
 💡 Skills Demonstrated
 
 Terraform: provider, resource, output, user_data scripts
-
-AWS services: EC2, S3, Security Groups
-
-Nginx web server installation & configuration
-GitHub Actions CI/CD workflow
+AWS: EC2, S3, Security Groups
+Nginx installation & config
+GitHub Actions CI/CD
 Free Tier & cost-aware resource management
