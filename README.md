@@ -1,50 +1,54 @@
-🌟 Terraform AWS Infrastructure Project
-Project Overview
+🌐 Terraform AWS Infrastructure Project
 
-This project demonstrates deploying AWS cloud infrastructure using Terraform.
-It is designed for internship-level roles to showcase Infrastructure as Code (IaC) and basic DevOps skills.
+🚀 Project Overview
 
-Key Highlights:
+This project demonstrates deploying cloud infrastructure on AWS using Terraform, designed for intern-level roles.
 
-Launching EC2 instances
+It highlights Infrastructure as Code (IaC) best practices and shows your ability to:
 
-Installing Nginx web server automatically
+Launch EC2 instances with free-tier configuration
 
-Creating S3 buckets for storage
+Install and configure Nginx web server automatically
 
-Configuring Security Groups for SSH & HTTP
+Create S3 buckets for storage
 
-Automating with GitHub Actions CI/CD
+Setup Security Groups for SSH & HTTP
 
-Architecture
+Automate infrastructure deployment via GitHub Actions CI/CD
+
+📦 Architecture
 EC2 Instance
 
 AMI: Amazon Linux 2
 
 Type: t3.micro (Free Tier)
 
-Nginx installed using Terraform user_data script
+User Data: Installs Nginx automatically
 
-Security Group: allows SSH (22) & HTTP (80)
+Security Group: Allows SSH (22) & HTTP (80)
 
 S3 Bucket
 
-Simple demo bucket for storage
+Demo bucket for storing files or backups
 
-Provisioned via Terraform
+Created via Terraform
 
 CI/CD Pipeline
 
-GitHub Actions automatically runs Terraform commands:
+GitHub Actions workflow runs automatically:
 
-init, validate, plan
+terraform init
 
-Ensures infrastructure changes are safe before deployment
+terraform validate
 
-Getting Started
+terraform plan
+
+Ensures infrastructure changes are validated before deployment
+
+⚡ Getting Started
 Prerequisites
 
-AWS account (Free Tier)
+AWS account (Free Tier recommended)
 
 Terraform v1.6.6+
 
@@ -52,7 +56,7 @@ Git installed
 
 Optional: VS Code
 
-Setup Instructions
+Setup Steps
 
 Clone repository:
 
@@ -60,7 +64,8 @@ git clone https://github.com/chetanambalkar329-dot/terraform-cloud-project.git
 cd terraform-cloud-project
 
 
-Set AWS credentials (temporary IAM user):
+Set AWS credentials:
+Create a temporary IAM user with programmatic access.
 
 setx AWS_ACCESS_KEY_ID "YOUR_ACCESS_KEY"
 setx AWS_SECRET_ACCESS_KEY "YOUR_SECRET_KEY"
@@ -71,50 +76,48 @@ Initialize Terraform:
 terraform init
 
 
-Plan & Apply Infrastructure:
+Plan & deploy infrastructure:
 
 terraform plan
 terraform apply -auto-approve
 
 
-Verify:
-Open EC2 public IP → Nginx welcome page should load
+Verify deployment:
+Open the EC2 public IP in a browser → Nginx welcome page should appear
 
-CI/CD with GitHub Actions
+⚙️ CI/CD with GitHub Actions
 
 Workflow: .github/workflows/terraform.yml
 
 Steps:
 
-Checkout repo
+Checkout repository
 
-Setup Terraform
+Setup Terraform environment
 
-Configure AWS credentials (from GitHub Secrets)
+Configure AWS credentials securely from GitHub Secrets
 
-Run Terraform: init, validate, plan
+Run Terraform commands: init, validate, plan
 
 Ensures automated checks for every push
 
-Cleanup & Cost Management
+🧹 Cleanup & Cost Management
 
 To avoid AWS charges:
 
 terraform destroy -auto-approve
 
 
-Verify EC2, S3, EBS volumes, Elastic IPs manually
+Verify EC2 instances, S3 buckets, EBS volumes, and Elastic IPs are removed
 
 Confirm AWS Cost Explorer shows no active resources
 
-Skills Demonstrated
+💡 Skills Demonstrated
 
-Terraform basics: provider, resource, output
+Terraform: provider, resource, output, user_data scripts
 
 AWS services: EC2, S3, Security Groups
 
-Nginx setup via user_data script
-
-GitHub Actions CI/CD
-
-Free Tier & cost-aware provisioning
+Nginx web server installation & configuration
+GitHub Actions CI/CD workflow
+Free Tier & cost-aware resource management
